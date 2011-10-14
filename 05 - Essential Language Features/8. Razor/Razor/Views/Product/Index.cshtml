@@ -1,0 +1,16 @@
+﻿@model Razor.Models.Product
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Name: @Model.Name</h2>
+
+@{
+    if (Model.Category == "Watersports") {
+        @:Category: @Model.Category <b>Splash!</b> 
+    }
+    if (Model.Price > 10) {
+        <h5>Pricey!</h5>
+    }
+}

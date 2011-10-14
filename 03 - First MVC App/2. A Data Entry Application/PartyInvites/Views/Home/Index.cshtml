@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <div>
+       @ViewBag.Greeting, world (from the view)
+       <p>We're going to have an exciting party.<br />
+       (To do: sell it better. Add pictures or something.)
+       </p>
+       @Html.ActionLink("RSVP Now", "RsvpForm")
+    </div>
+</body>
+</html>
