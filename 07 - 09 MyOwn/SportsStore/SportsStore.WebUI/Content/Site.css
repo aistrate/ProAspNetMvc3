@@ -97,3 +97,37 @@ DIV.pager A { font-size: 1.1em; color: #666; text-decoration: none;
       padding: 0 .4em 0 .4em; }
 DIV.pager A:hover { background-color: Silver; }
 DIV.pager A.selected { background-color: #353535; color: White; }
+
+
+/* Chapter 8
+-----------------------------------------------------------*/
+DIV#categories A  
+{
+    font: bold 1.1em "Arial Narrow","Franklin Gothic Medium",Arial; display: block;
+    text-decoration: none; padding: .6em; color: Black;
+    border-bottom: 1px solid silver;
+}
+DIV#categories A.selected { background-color: #666; color: White; }
+DIV#categories A:hover { background-color: #CCC; }
+DIV#categories A.selected:hover { background-color: #666; }
+
+FORM { margin: 0; padding: 0; }
+DIV.item FORM { float:right; }
+DIV.item INPUT {
+    color:White; background-color: #333; border: 1px solid black; cursor:pointer; 
+}
+
+H2 { margin-top: 0.3em }
+TFOOT TD { border-top: 1px dotted gray; font-weight: bold; }
+.actionButtons A, INPUT.actionButtons {
+    font: .8em Arial; color: White; margin: .5em;
+    text-decoration: none; padding: .15em 1.5em .2em 1.5em;
+    background-color: #353535; border: 1px solid black;
+}
+
+/*
+DIV#cart { float:right; margin: .8em; color: Silver; 
+   background-color: #555; padding: .5em .5em .5em 1em; }
+DIV#cart A { text-decoration: none; padding: .4em 1em .4em 1em; line-height:2.1em;
+   margin-left: .5em; background-color: #333; color:White; border: 1px solid black;}
+*/

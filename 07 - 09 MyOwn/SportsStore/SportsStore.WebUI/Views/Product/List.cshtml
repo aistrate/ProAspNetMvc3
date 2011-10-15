@@ -4,23 +4,11 @@
     ViewBag.Title = "Products";
 }
 
-<h1>Products</h1>
-
 @foreach (var p in Model.Products)
 {
-    @*<div class="item">
-        <h3>@p.Name</h3>
-        @p.Description
-        <h4>@p.Price.ToString("c")</h4>
-    </div>*@
-    
     Html.RenderPartial("ProductSummary", p);
-    
-    //@Html.Partial("ProductSummary", p)
 }
 
-@* @Html.PageLinks(new PagingInfo() { CurrentPage = 2, ItemsPerPage = 10, TotalItems = 28 }, i => "Page" + i) *@
-
 <div class="pager">
-    @Html.PageLinks(Model.PagingInfo, i => Url.Action("List", new { Page = i }))
+    @Html.PageLinks(Model.PagingInfo, i => Url.Action("List", new { category = Model.CurrentCategory, page = i }))
 </div>
