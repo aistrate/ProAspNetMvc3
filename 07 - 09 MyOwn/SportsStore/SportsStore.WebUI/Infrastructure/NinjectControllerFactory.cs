@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Linq;
+using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Moq;
 using Ninject;
 using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Concrete;
-using SportsStore.Domain.Entities;
-using System.Configuration;
+using SportsStore.WebUI.Infrastructure.Abstract;
+using SportsStore.WebUI.Infrastructure.Concrete;
 
 namespace SportsStore.WebUI.Infrastructure
 {
@@ -30,7 +29,8 @@ namespace SportsStore.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            ninjectKernel.Bind<IProductRepository>().To<EFProductRepository>();
+            ninjectKernel.Bind<IProductRepository>()
+                         .To<EFProductRepository>();
 
             EmailSettings emailSettings = new EmailSettings
             {
@@ -41,6 +41,9 @@ namespace SportsStore.WebUI.Infrastructure
             ninjectKernel.Bind<IOrderProcessor>()
                          .To<EmailOrderProcessor>()
                          .WithConstructorArgument("settings", emailSettings);
+
+            ninjectKernel.Bind<IAuthProvider>()
+                         .To<FormsAuthProvider>();
         }
     }
 }
