@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="header">
+        @{Html.RenderAction("Summary", "Cart");}
+        <div class="title">SPORTS STORE</div>
+     </div>
+     <div id="categories">
+        @{ Html.RenderAction("Menu", "Nav"); }
+     </div>
+     <div id="content">
+        @RenderBody()
+    </div>
+</body>
+</html>
