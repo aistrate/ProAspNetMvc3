@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+</p>
+
+<p>
+    @* Works without LegacyRoute.GetVirtualPath being implemented *@
+    @Html.ActionLink("Legacy link (1)", "GetLegacyUrl", "Legacy",
+                     new { legacyUrl = "~/articles/Windows_3.1_Overview.html" }, null)
+
+    @Html.ActionLink("Legacy link (2)", "anything", new { legacyUrl = "~/articles/Windows_3.1_Overview.html" })
+    @Html.ActionLink("Legacy link (3)", "", new { legacyUrl = "~/articles/Windows_3.1_Overview.html" })
+    @Html.ActionLink("Legacy link (4)", null, new { legacyUrl = "~/articles/Windows_3.1_Overview.html" })
+
+    @Html.ActionLink("Broken legacy link", "", new { legacyUrl = "~/articles/xxx.html" })
+</p>
+
+<p>
+    @Html.RouteLink("Say Hello", "Hello")
+    @Html.RouteLink("Say Hi", "")
+    <a href="/SayHello">Salutation</a>
+</p>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+</p>
+
+@Html.ActionLink("About this application", "About")
+
+@Html.ActionLink("About this application (2)", "About", new { id = "MyID" })
+
+@Html.ActionLink("About this application (3)", "About", new { id = "MyID", myVar = "MyValue" })
+
+<br /><br />
+@Html.ActionLink("Home", "Index", new { id = "MyID" })
+
+@Html.ActionLink("Home", "Index", "Home", null, new { id = "myAnchorId", @class = "myCSSClass" })
+
+<br /><br />
+My URL is: @Url.Action("Index", "Home", new { id = "MyId" })
+
+<br /><br />
+@Html.RouteLink("Routed Link", new { id = "MyId", action = "About", controller = "Home" })

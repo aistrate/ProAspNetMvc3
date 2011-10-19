@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Click me", "About")
+@Html.ActionLink("Admin area", "Index", new { area = "Admin" })
+@Html.ActionLink("Default area", "Index", new { area = "" })

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlsAndRoutes", "UrlsAndRoutes\UrlsAndRoutes.csproj", "{3B8E28BC-7345-4428-BDED-F15EA44447D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlsAndRoutes.Tests", "UrlsAndRoutes.Tests\UrlsAndRoutes.Tests.csproj", "{BFF7AF5C-CEE8-4078-8914-CC97C79C46CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalControllers", "AdditionalControllers\AdditionalControllers.csproj", "{12613889-07D4-4D4C-986D-31EF17563774}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B8E28BC-7345-4428-BDED-F15EA44447D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8E28BC-7345-4428-BDED-F15EA44447D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8E28BC-7345-4428-BDED-F15EA44447D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8E28BC-7345-4428-BDED-F15EA44447D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFF7AF5C-CEE8-4078-8914-CC97C79C46CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFF7AF5C-CEE8-4078-8914-CC97C79C46CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFF7AF5C-CEE8-4078-8914-CC97C79C46CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFF7AF5C-CEE8-4078-8914-CC97C79C46CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12613889-07D4-4D4C-986D-31EF17563774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12613889-07D4-4D4C-986D-31EF17563774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12613889-07D4-4D4C-986D-31EF17563774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12613889-07D4-4D4C-986D-31EF17563774}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
