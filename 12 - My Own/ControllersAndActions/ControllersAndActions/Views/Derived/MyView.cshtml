@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "MyView";
+}
+
+<h2>MyView</h2>
+
+<p>Message: @ViewBag.Message</p>
+
+<p>UserHostAddress: @Request.UserHostAddress</p>
+<p>UserHostName: @Request.UserHostName</p>
+<p>UserAgent: @Request.UserAgent</p>
+<p>URL: @Request.Url</p>
+
+<p>User name: @User.Identity.Name</p>
+<p>Server Machine Name: @Server.MachineName</p>
+<p>Timestamp: @Context.Timestamp</p>
+
+<p>File count: @Request.Files.Count</p>

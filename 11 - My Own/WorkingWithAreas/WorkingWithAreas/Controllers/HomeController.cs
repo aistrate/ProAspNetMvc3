@@ -13,6 +13,10 @@ namespace WorkingWithAreas.Controllers
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
             return View();
+
+            //ViewResult viewResult = new ViewResult();
+            //viewResult.ViewBag.Message = ViewBag.Message;
+            //return viewResult;
         }
 
         public ActionResult About()

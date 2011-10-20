@@ -1,0 +1,3 @@
+Routing:
+- research on the web: good design for URL schemas ("best practices"), RESTful architecture, etc.
+- look at source code of the routing classes (which is open source); especially the concrete implementation of the methods GetRouteData() and GetVirtualPath() of abstract class RouteBase (incoming/outgoing URLs, respectively)
