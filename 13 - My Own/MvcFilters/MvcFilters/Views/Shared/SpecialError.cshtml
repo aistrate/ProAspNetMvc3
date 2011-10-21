@@ -1,0 +1,18 @@
+﻿@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "Sorry, there was a problem";
+}
+
+<p>
+    There was a <b>@Model.Exception.GetType().Name</b>
+    while rendering <b>@Model.ControllerName</b>'s
+    <b>@Model.ActionName</b>
+</p>
+
+<p>
+    The exception message is: <b>@Model.Exception.Message</b>
+</p>
+
+<p>Stack trace:</p>
+<pre>@Model.Exception.StackTrace</pre>
