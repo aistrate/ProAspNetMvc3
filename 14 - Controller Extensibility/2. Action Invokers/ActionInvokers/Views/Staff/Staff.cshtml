@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Staff";
+}
+
+<h4>Staff</h4>
+
+HTTP Method: @Request.HttpMethod
+<p />
+Overidden HTTP method: @Request.GetHttpMethodOverride()
+<p />
+@using (Html.BeginForm()) {
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+
+    <input type="submit" value="Delete" />
+}
+
