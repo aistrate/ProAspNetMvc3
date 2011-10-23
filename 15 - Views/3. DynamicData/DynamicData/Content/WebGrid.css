@@ -1,0 +1,55 @@
+﻿
+.grid 
+{
+    background-color:#eeeeee;
+    color:white;
+    border-style:solid;
+    border-width:2px;
+    border-color:black;   
+    
+}
+
+.header
+{
+    font-size:10pt;
+    color:white;
+}
+
+.row
+{
+    font-size:10pt;
+     background-color:#409040;
+     color:white;
+     border-style:solid;
+     border-width:1px;
+     text-align:center;
+}
+
+.altRow
+{
+    font-size:10pt;
+     background-color:#809080;
+     color:white;
+     border-style:solid;
+     border-width:1px;
+     text-align:center;
+}
+
+.numberCol
+{
+    text-align:right;
+    min-width:100px;
+    padding:5px;
+}
+
+.textCol
+{
+    text-align:left;
+    min-width:100px;
+}
+
+.footer
+{
+    text-align:center;
+    color: Black;
+}

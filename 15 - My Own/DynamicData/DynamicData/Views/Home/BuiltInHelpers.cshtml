@@ -1,0 +1,71 @@
+﻿@using DynamicData.Models
+
+@model Order
+
+@{
+    ViewBag.Title = "BuiltInHelpers";
+}
+
+<h2>BuiltInHelpers</h2>
+
+@using (Html.BeginForm())
+{
+    <p />
+    @Html.CheckBox("myCheckBox1", false)
+    @:MyCheckBox1
+
+    @Html.CheckBox("myCheckBox2", true)
+    @:MyCheckBox2
+
+    <p />
+    @Html.RadioButton("myRadioButton", "valA", true); @:A
+    @Html.RadioButton("myRadioButton", "valB", false); @:B
+    @Html.RadioButton("myRadioButton", "valC", true); @:C
+@*
+    <p />
+    @:Approved?
+    @Html.RadioButtonFor(m => m.IsApproved, true); @:Yes
+    @Html.RadioButtonFor(m => m.IsApproved, false); @:No
+
+    <p />
+    @:Status:
+    @Html.RadioButtonFor(m => m.Status, OrderStatus.New); @:New
+    @Html.RadioButtonFor(m => m.Status, OrderStatus.Approved); @:Approved
+    @Html.RadioButtonFor(m => m.Status, OrderStatus.Cancelled); @:Cancelled
+*@
+    <p />
+    @:Approved?
+    @Html.DropDownListFor(m => m.IsApproved, new SelectList(new[] { true, false }))
+
+    <p />
+    @:Status:
+    @*@Html.DropDownListFor(m => m.Status, new SelectList(Enum.GetValues(typeof(OrderStatus))))*@
+    @Html.DropDownListFor(m => m.Status, new SelectListItem[]
+    {
+        new SelectListItem { Text = "Canc", Value = OrderStatus.Cancelled.ToString() },
+        new SelectListItem { Text = "Appr", Value = OrderStatus.Approved.ToString() },
+    })
+
+    <p />
+    @:Multiple select:
+    @*@Html.ListBoxFor(m => m.Status, new MultiSelectList(Enum.GetValues(typeof(OrderStatus))))*@
+    @Html.ListBox("myList", new MultiSelectList(new[] { "Choice A", "Choice B", "Choice C" }))
+
+    <p />
+    @:Possible statuses:
+    @Html.ListBoxFor(m => m.PossibleStatuses,
+                     new MultiSelectList(Enum.GetValues(typeof(OrderStatus)),
+                                         new[] { OrderStatus.New, OrderStatus.Approved }))
+
+    <p />
+    @Html.ActionLink("Hi", "Index", "Home", "https", "www.example.com", "anchor", null, null)
+
+    <p />
+    @Url.Action("About", "Home")
+
+    <p />
+    @Url.Content("~/my/content.pdf")
+
+    <br /><br />
+    <input type="submit" value="Submit" />
+}

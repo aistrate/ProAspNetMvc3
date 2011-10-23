@@ -1,0 +1,11 @@
+﻿@model IEnumerable<string>
+@{
+    Layout = null;
+}
+
+<p>This is my strongly-typed partial view</p>
+<ul>
+@foreach (string val in Model) {
+    <li>@val</li>
+}
+</ul>

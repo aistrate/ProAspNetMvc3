@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section Header {
+    @foreach (string str in new [] {"Home", "List", "Edit"}) {
+        <div style="float:left; padding:5px">    
+            @Html.ActionLink(str, str)
+        </div>
+    }
+    <div style="clear:both" />
+}
+
+@section Body {
+    <h4>This is the body section</h4>
+}
+
+@section Footer {
+    <h4>This is the footer</h4>
+}

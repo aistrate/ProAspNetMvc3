@@ -1,0 +1,15 @@
+﻿@using DynamicData.Infrastructure.HtmlHelpers
+@{
+    ViewBag.Title = "ExternalHelper";
+}
+
+<h4>ExternalHelper</h4>
+
+Days of the week: <p/>
+@Html.List((string[])ViewBag.Days)
+
+<p />
+Fruit I like: <p />
+@Html.List((string[])ViewBag.Fruits)
+
+@Html.List(new string[] {"<form>Enter your password:<input type=text><input type=submit value=\"Log In\"/></form>"})

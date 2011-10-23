@@ -1,0 +1,9 @@
+﻿@inherits Views.Models.ViewClasses.CalculatorView
+
+@{
+    ViewBag.Title = "Calculate";
+}
+
+<h2>Calculate</h2>
+
+The calculation result for @ViewBag.X and @ViewBag.Y is: @Calculator.Product(ViewBag.X, ViewBag.Y)

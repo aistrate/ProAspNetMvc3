@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Child Action Demonstration";
+}
+
+<p>This is the method rendered by the action method</p>
+
+@Html.Action("Time", new { time = DateTime.Now })
+
+<p>This is the method rendered by the action method again</p>

@@ -1,0 +1,17 @@
+﻿@using DynamicData.Infrastructure
+
+@{
+    ViewBag.Title = "Index";
+}
+
+Here is some data: @MyUtility.GetUsefulData()
+
+<p>Unencoded:</p>
+
+@MyUtility.GetUnencodedData()
+
+<p>Raw:</p>
+@Html.Raw(MyUtility.GetUsefulData())
+
+<p />
+@Html.ActionLink("BuiltInHelpers", "BuiltInHelpers")

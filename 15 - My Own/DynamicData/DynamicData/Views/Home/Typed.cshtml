@@ -1,0 +1,45 @@
+﻿@model string
+
+@{
+    ViewBag.Title = "Typed";
+}
+
+<h2>Typed</h2>
+
+Model: @Model
+
+<br />
+<br />
+<br />
+
+@foreach (string s in new string[] { "a", "b" })
+{
+    string t = s + s;
+    
+    @:Value1: @s (s)
+
+    @(3+5)
+
+    <p>
+        Value2: @t (t)
+    </p>
+}
+
+End
+
+@(5+7)
+
+@{ Write(10+15); }
+
+@if (true) { }
+@if (true) { ; }
+@if (true) { var x = "d"; }
+
+<br />
+@if (true) { var x = "e"; @(x+x) @x }
+
+<br />
+@if (true) {
+    var x = "f";
+    @(x+x) @:-- -- @x @(x)
+}

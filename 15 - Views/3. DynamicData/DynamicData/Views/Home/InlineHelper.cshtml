@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "InlineHelper";
+}
+
+@helper CreateList(string[] items) {
+    
+    <ul>
+    @foreach (string item in items) {
+        <li>@item</li>    
+    }    
+    </ul>
+}
+
+<h4>InlineHelper</h4>
+
+Days of the week: <p/>
+@CreateList(ViewBag.Days)
+
+<p />
+Fruit I like: <p />
+@CreateList(ViewBag.Fruits)
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "InlineHelper";
+}
+
+@helper CreateList(string[] items)
+{
+    <ul>
+        @foreach (string item in items)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+
+<h2>InlineHelper</h2>
+
+Days of the week: <p />
+@CreateList(System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.DayNames)
+
+<p />
+Fruit I like: <p />
+@CreateList(ViewBag.Fruits)

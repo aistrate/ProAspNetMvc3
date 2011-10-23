@@ -1,0 +1,13 @@
+﻿@model DynamicData.Controllers.MyData
+@using (Html.BeginForm("Index", "Home")) {
+ 
+@Html.TextBox("DataValue")
+    
+}
+
+
+@Html.TextBox("MyTextBox", "MyValue", 
+    new { @class = "my-ccs-class", mycustomattribute = "my-value" })
+
+@Html.ListBox("MyListBox", new SelectList(new[] { "One", "Two", "Three" }))    
+

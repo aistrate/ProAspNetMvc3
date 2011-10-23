@@ -1,0 +1,20 @@
+﻿@using DynamicData.Infrastructure.HtmlHelpers
+
+@{
+    ViewBag.Title = "ExternalHelper";
+}
+
+@{
+    string[] dayNames = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.DayNames;
+}
+
+<h2>ExternalHelper</h2>
+
+Days of the week: <p />
+@Html.List(dayNames)
+
+<p />
+Fruit I like: <p />
+@Html.List((string[])ViewBag.Fruits)
+
+@{ Html.BeginForm("", "") }

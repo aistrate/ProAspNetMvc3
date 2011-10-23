@@ -1,0 +1,175 @@
+﻿@{
+    ViewBag.Title = "InlineHelper2";
+}
+
+
+@{
+    string[] dayNames = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.DayNames;
+
+    string message = "Global";
+}
+
+
+@helper CreateList(string[] items)
+{
+    <ul>
+        @foreach (string item in items)
+        {
+            <li>@item</li>
+        }
+    </ul>
+    
+    // Cannot access variable 'message'
+}
+
+
+@{
+    Action<string[]> closure1 = items =>
+    {
+        WriteLiteral("<ul>");
+        foreach (string item in items)
+        {
+            WriteLiteral("\n<li>");
+            Write(item);
+            WriteLiteral("</li>");
+        };
+        WriteLiteral("\n</ul>\n");
+        
+        Write(message);
+    };
+}
+
+
+@{
+    Func<string[], HelperResult> closure2 = items =>
+    {
+        return new HelperResult(writer =>
+        {
+            WriteLiteralTo(writer, "<ul>");
+            foreach (string item in items)
+            {
+                WriteLiteralTo(writer, "\n<li>");
+                WriteTo(writer, item);
+                WriteLiteralTo(writer, "</li>");
+            };
+            WriteLiteralTo(writer, "\n</ul>\n");
+
+            WriteTo(writer, message);
+        });
+    };
+}
+
+
+@* Generated code looks exactly like closure2 (except that parameter 'items' is now called 'item') *@
+@{
+    Func<string[], HelperResult> closure3 =
+        @<text>
+            <ul>
+                @foreach (string s in item)
+                {
+                    <li>@s</li>
+                }
+            </ul>
+
+            @message
+        </text>
+    ;
+}
+
+
+@* This closure simulates two input parameters by using a Tuple *@
+@{
+    Func<Tuple<string[], string>, HelperResult> closure4 =
+        @<text>
+            <ul>
+                @foreach (string s in item.Item1)
+                {
+                    <li>@s</li>
+                }
+            </ul>
+
+            @item.Item2
+        </text>
+    ;
+}
+
+
+@{
+    Func<string[], string, HelperResult> closure5 = (items, msg) => closure4(Tuple.Create(items, msg));
+}
+
+
+@* Two actual parameters *@
+@{
+    Func<string[], string, HelperResult> closure6 = (items, msg) => ((Func<Tuple<string[], string>, HelperResult>)(
+        @<text>
+            <ul>
+                @foreach (string s in item.Item1)
+                {
+                    <li>@s</li>
+                }
+            </ul>
+
+            @item.Item2
+        </text>
+    ))(Tuple.Create(items, msg));
+}
+
+
+
+@* Three parameters *@
+@{
+    Func<string[], int, string, HelperResult> closure7 = (items, i, msg) => ((Func<Tuple<string[], int, string>, HelperResult>)(
+        @<text>
+            <ul>
+                @foreach (string s in item.Item1)
+                {
+                    <li>@s</li>
+                }
+            </ul>
+
+            @item.Item3 (@item.Item2)
+        </text>
+    ))(Tuple.Create(items, i, msg));
+}
+
+
+<h2>InlineHelper2</h2>
+
+
+<p>Helper:</p>
+@CreateList(dayNames)
+
+
+@{ message = "Global1"; }
+
+<p>Closure 1:</p>
+@{ closure1(dayNames); }
+
+
+@{ message = "Global2"; }
+
+<p>Closure 2:</p>
+@closure2(dayNames)
+
+
+@{ message = "Global3"; }
+
+<p>Closure 3:</p>
+@closure3(dayNames)
+
+
+<p>Closure 4:</p>
+@closure4(Tuple.Create(dayNames, "Param4"))
+
+
+<p>Closure 5:</p>
+@closure5(dayNames, "Param5")
+
+
+<p>Closure 6:</p>
+@closure6(dayNames, "Param6")
+
+
+<p>Closure 7:</p>
+@closure7(dayNames, 123, "Param7")
