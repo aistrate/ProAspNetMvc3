@@ -116,7 +116,6 @@
 }
 
 
-
 @* Three parameters *@
 @{
     Func<string[], int, string, HelperResult> closure7 = (items, i, msg) => ((Func<Tuple<string[], int, string>, HelperResult>)(
@@ -131,6 +130,25 @@
             @item.Item3 (@item.Item2)
         </text>
     ))(Tuple.Create(items, i, msg));
+}
+
+
+@* Three parameters, no Tuple *@
+@{
+    Func<string[], int, string, HelperResult> closure8 = (items, i, msg) =>
+        ((Func<object, HelperResult>)(
+            @<text>
+                <ul>
+                    @foreach (string s in items)
+                    {
+                        <li>@s</li>
+                    }
+                </ul>
+
+                @msg (@i)<br />
+                @message
+            </text>
+        ))(null);
 }
 
 
@@ -173,3 +191,9 @@
 
 <p>Closure 7:</p>
 @closure7(dayNames, 123, "Param7")
+
+
+@{ message = "Global8"; }
+
+<p>Closure 8:</p>
+@closure8(dayNames, 456, "Param8")
