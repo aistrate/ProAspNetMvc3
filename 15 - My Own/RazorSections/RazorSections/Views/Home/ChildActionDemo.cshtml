@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Child Action Demo";
+}
+
+<p>This is the view rendered by the action method</p>
+
+@Html.Action("Time")
+
+One hour from now:
+@Html.Action("SpecificTime", new { time = DateTime.Now.AddHours(1) })
+
+<p>This is the view rendered by the action method, again</p>

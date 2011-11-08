@@ -1,0 +1,20 @@
+﻿@using DynamicData.Models
+
+@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Grid 2";
+}
+
+@{ var grid = (WebGrid)ViewBag.WebGrid; }
+
+@grid.GetHtml(
+    tableStyle: "grid",
+    headerStyle: "header",
+    rowStyle: "row",
+    footerStyle: "footer",
+    alternatingRowStyle: "altRow",
+    columns: grid.Columns(
+        grid.Column("Name", "Item", style: "textCol"),
+        grid.Column("Price", style: "numberCol",
+                             format: @<text> @string.Format("{0:c2}", item.Price) </text>)))

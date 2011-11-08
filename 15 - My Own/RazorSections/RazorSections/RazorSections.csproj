@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6BCB84F9-2150-40C1-A675-B298A1A412AA}</ProjectGuid>
+    <ProjectGuid>{AD5773EB-42B9-4A1D-9BD4-9932C246938F}</ProjectGuid>
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DynamicData</RootNamespace>
-    <AssemblyName>DynamicData</AssemblyName>
+    <RootNamespace>RazorSections</RootNamespace>
+    <AssemblyName>RazorSections</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
@@ -66,11 +66,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\HtmlHelpers\CustomHtmlHelpers.cs" />
-    <Compile Include="Infrastructure\MyUtility.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Region.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,7 +96,6 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
-    <Content Include="Content\WebGrid.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
@@ -114,9 +108,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Views\Home\InlineHelper.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -140,34 +131,40 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Region.cshtml" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Shared\_HeaderFooterLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Typed.cshtml" />
+    <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\InlineHelper2.cshtml" />
+    <Content Include="Views\Home\Index3.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\ExternalHelper.cshtml" />
+    <Content Include="Views\Home\MyPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\BuiltInHelpers.cshtml" />
+    <Content Include="Views\Home\PartialViews.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Grid.cshtml" />
+    <Content Include="Views\Home\MyStronglyTypedPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Grid2.cshtml" />
+    <Content Include="Views\Home\PartialViews2.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\OtherHelpers.cshtml" />
+    <Content Include="Views\Home\Time.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ChildActionDemo.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -186,7 +183,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1153</DevelopmentServerPort>
+          <DevelopmentServerPort>47779</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

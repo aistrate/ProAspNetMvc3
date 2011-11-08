@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "OtherHelpers";
+}
+
+<h2>Other Helpers</h2>
+
+
+<h3>Crypto:</h3>
+
+@{ var text = "Mary had a little lamb"; }
+
+Text: @text <br />
+SHA1: @Crypto.SHA1(text)
+
+
+<h3>ServerInfo:</h3>
+
+@ServerInfo.GetHtml()

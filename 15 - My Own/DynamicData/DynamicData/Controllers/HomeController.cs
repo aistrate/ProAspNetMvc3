@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Helpers;
+using System.Web.Mvc;
 using DynamicData.Models;
 
 namespace DynamicData.Controllers
@@ -75,6 +77,61 @@ namespace DynamicData.Controllers
             };
 
             return View(products);
+        }
+
+        public ActionResult Grid2()
+        {
+            var products = new[]
+            {
+                new Product {Name = "Kayak", Category = "Watersports", Price = 275m},
+                new Product {Name = "Lifejacket", Category = "Watersports", Price = 48.95m},
+                new Product {Name = "Soccer ball", Category = "Football", Price = 19.50m},
+                new Product {Name = "Corner flags", Category = "Football", Price = 34.95m},
+                new Product {Name = "Stadium", Category = "Football", Price = 79500m},
+                new Product {Name = "Thinking cap", Category = "Chess", Price = 16m},
+            };
+
+            ViewBag.WebGrid = new WebGrid(source: products, rowsPerPage: 3);
+
+            return View(products);
+        }
+
+        public void ChartImage()
+        {
+            var products = new[]
+            {
+                new Product {Name = "Kayak", Category = "Watersports", Price = 275m},
+                new Product {Name = "Lifejacket", Category = "Watersports", Price = 48.95m},
+                new Product {Name = "Soccer ball", Category = "Football", Price = 19.50m},
+                new Product {Name = "Corner flags", Category = "Football", Price = 34.95m},
+                new Product {Name = "Thinking cap", Category = "Chess", Price = 16m},
+            };
+
+            Chart chart = new Chart(600, 200,
+                                    @"<Chart BackColor=""Gray"" BackSecondaryColor=""WhiteSmoke""
+BackGradientStyle=""DiagonalRight"" AntiAliasing=""All""
+BorderlineDashStyle = ""Solid"" BorderlineColor = ""Gray"">
+<BorderSkin SkinStyle = ""Emboss"" />
+<ChartAreas>
+<ChartArea Name=""Default"" _Template_=""All"" BackColor=""Wheat""
+BackSecondaryColor=""White"" BorderColor=""64, 64, 64, 64""
+BorderDashStyle=""Solid"" ShadowColor=""Transparent"">
+</ChartArea>
+</ChartAreas>
+</Chart>");
+
+            chart.AddSeries(
+                chartType: "Column",
+                yValues: products.Select(p => p.Price).ToArray(),
+                xValue: products.Select(p => p.Name).ToArray()
+            );
+
+            chart.Write();
+        }
+
+        public ActionResult OtherHelpers()
+        {
+            return View();
         }
     }
 }

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<string>
+
+<p>This is my strongly-typed partial view</p>
+
+<ul>
+    @foreach (string s in Model)
+    {
+        <li>@s</li>
+    }
+</ul>
