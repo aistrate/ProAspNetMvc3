@@ -1,0 +1,15 @@
+﻿@model ModelTemplates.Models.Person
+
+@{
+    ViewBag.Title = "Role Test";
+}
+
+<p>
+    @Html.LabelFor(m => m.Role):
+    @Html.EditorFor(m => m.Role)
+</p>
+
+<p>
+    @Html.LabelFor(m => m.Role):
+    @Html.DisplayFor(m => m.Role)
+</p>

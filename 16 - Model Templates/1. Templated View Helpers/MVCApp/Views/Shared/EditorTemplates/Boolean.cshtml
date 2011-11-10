@@ -1,0 +1,21 @@
+﻿@model bool?
+
+@{
+    bool renderList = true;
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey("RenderList")) {
+        renderList = 
+            bool.Parse(ViewData.ModelMetadata.AdditionalValues["RenderList"].ToString());
+    }  
+}           
+
+@if (renderList) {
+    
+    SelectList list = ViewData.ModelMetadata.IsNullableValueType ?
+        new SelectList(new [] {"True", "False", "Not Set"}, Model) :
+        new SelectList(new [] {"True", "False"}, Model);
+
+    @Html.DropDownListFor(m => m, list)
+    
+} else {
+    @Html.TextBoxFor(m => m)
+}

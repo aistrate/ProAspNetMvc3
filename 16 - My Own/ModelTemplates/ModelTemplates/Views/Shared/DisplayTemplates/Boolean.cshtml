@@ -1,0 +1,14 @@
+﻿@model bool?
+
+@if (ViewData.ModelMetadata.IsNullableValueType && Model == null)
+{
+    @:True False <b>NotSet</b>
+}
+else if ((bool)Model)
+{
+    @:<b>True</b> False NotSet
+}
+else
+{
+    @:True <b>False</b> NotSet
+}

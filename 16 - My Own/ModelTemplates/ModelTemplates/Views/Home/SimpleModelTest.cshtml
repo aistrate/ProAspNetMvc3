@@ -1,0 +1,14 @@
+﻿@model ModelTemplates.Models.SimpleModel
+
+@{
+    ViewBag.Title = "SimpleModel Test";
+}
+
+<h2>Simple Model</h2>
+
+@Html.EditorForModel()
+
+<div style="clear: both; float: left;"><h4>Home Address:</h4></div>
+@Html.EditorFor(m => m.HomeAddress)
+
+@*@Html.EditorFor(m => m.HomeAddress.PostalCode)*@

@@ -1,0 +1,11 @@
+﻿@using ModelTemplates.Models
+
+@model Role
+
+@* Should id and name always be "Role"? *@
+<select id="@ViewData.TemplateInfo.GetFullHtmlFieldId(null)" name="@ViewData.TemplateInfo.GetFullHtmlFieldName(null)">
+    @foreach (Role role in Enum.GetValues(typeof(Role)))
+    {
+        <option value="@role" @Html.Raw(Model == role ? "selected=\"selected\"" : "")>@role</option>
+    }
+</select>

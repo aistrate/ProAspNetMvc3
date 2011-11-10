@@ -1,0 +1,26 @@
+﻿@model bool?
+
+@{
+    bool renderList = false;
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey("RenderList"))
+    {
+        renderList = (bool)ViewData.ModelMetadata.AdditionalValues["RenderList"];
+    }
+}
+
+@if (renderList)
+{
+    SelectList selectList = ViewData.ModelMetadata.IsNullableValueType ?
+        new SelectList(new[] { "True", "False", "Not Set", }, Model == null ? "Not Set" : Model.Value.ToString()) :
+        new SelectList(new[] { "True", "False", }, Model.Value.ToString());
+    
+    @Html.DropDownListFor(m => m, selectList);
+}
+else if (ViewData.ModelMetadata.IsNullableValueType)
+{
+    @Html.TextBoxFor(m => m)
+}
+else
+{
+    @Html.CheckBox("", (bool)Model)
+}

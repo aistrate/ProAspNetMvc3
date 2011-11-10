@@ -1,0 +1,15 @@
+﻿@model ModelTemplates.Models.Person
+
+@{
+    ViewBag.Title = "EditorForModel";
+}
+
+<h2>Person</h2>
+
+<div class="column">
+    @Html.EditorForModel()
+</div>
+
+<div class="column">
+    @Html.EditorFor(m => m.HomeAddress)
+</div>

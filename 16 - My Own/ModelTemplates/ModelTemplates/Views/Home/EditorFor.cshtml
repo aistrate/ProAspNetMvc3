@@ -1,0 +1,20 @@
+﻿@model ModelTemplates.Models.Person
+
+@{
+    ViewBag.Title = "EditorFor";
+}
+
+<h2>Person</h2>
+
+@*@Html.EditorFor(m => m.PersonId)*@
+
+<div class="field">
+    <label>Name:</label>
+    @Html.EditorFor(m => m.FirstName)
+    @Html.EditorFor(m => m.LastName)
+</div>
+
+<div class="field">
+    <label>Approved:</label>
+    @Html.EditorFor(m => m.IsApproved)
+</div>

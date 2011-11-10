@@ -1,0 +1,15 @@
+﻿@model ModelTemplates.Models.Person
+
+@{
+    ViewBag.Title = "DisplayForModel";
+}
+
+<h2>Person</h2>
+
+<div class="column" style="width: 200px;">
+    @Html.DisplayForModel()
+</div>
+
+<div class="column">
+    @Html.DisplayFor(m => m.HomeAddress)
+</div>

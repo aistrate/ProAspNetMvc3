@@ -1,0 +1,11 @@
+﻿@using MVCApp.Models
+@model Role
+           
+@foreach (Role value in Enum.GetValues(typeof(Role))) {
+    if (value == Model) {
+        <b>@value</b>
+    } else {
+        @value 
+    }
+}
+

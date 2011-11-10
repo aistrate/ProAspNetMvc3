@@ -1,0 +1,5 @@
+﻿@model DateTime
+@{
+    var ti = ViewData.TemplateInfo;
+    
+    <input id="@ti.GetFullHtmlFieldId(ti.HtmlFieldPrefix)"         name="@ti.GetFullHtmlFieldName(ti.HtmlFieldPrefix)"         type="text" value="@ti.FormattedModelValue" />}

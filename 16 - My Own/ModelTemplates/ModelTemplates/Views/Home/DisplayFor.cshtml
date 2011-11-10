@@ -1,0 +1,18 @@
+﻿@model ModelTemplates.Models.Person
+
+@{
+    ViewBag.Title = "DisplayFor";
+}
+
+<h2>Person</h2>
+
+<div class="field">
+    <label>Name:</label>
+    @Html.DisplayFor(m => m.FirstName)
+    @Html.DisplayFor(m => m.LastName)
+</div>
+
+<div class="field">
+    <label>Approved:</label>
+    @Html.DisplayFor(m => m.IsApproved)
+</div>

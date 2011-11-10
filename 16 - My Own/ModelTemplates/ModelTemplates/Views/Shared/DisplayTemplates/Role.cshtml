@@ -1,0 +1,15 @@
+﻿@using ModelTemplates.Models
+
+@model Role
+
+@foreach (Role role in Enum.GetValues(typeof(Role)))
+{
+    if (Model == role)
+    {
+        <b>@role</b>
+    }
+    else
+    {
+        @role
+    }
+}
