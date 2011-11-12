@@ -1,0 +1,21 @@
+﻿@model ModelBinding.Models.Person
+
+@{
+    ViewBag.Title = "Register Member";
+}
+
+@using (Html.BeginForm())
+{
+    <h2>Member</h2>
+
+    @Html.EditorForModel()
+    
+    <input type="submit" value="Register" />
+}
+
+
+<br /><br /><br />
+[ @(string.Join(", ", ViewData.ModelState.Keys.Cast<string>().ToArray())) ]<br />
+[ @(string.Join(", ", ViewData.ModelState.Values.Cast<ModelState>()
+                                                .Select(m => string.Format("\"{0}\"", m.Value.AttemptedValue))
+                                                .ToArray())) ]

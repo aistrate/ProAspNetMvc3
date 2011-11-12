@@ -1,0 +1,23 @@
+﻿@using ModelBinding.Models
+
+@model Person
+
+@{
+    ViewBag.Title = "Edit Person 2";
+
+    Person myPerson = new Person { FirstName = "Jane", LastName = "Doe", };
+}
+
+<h2>Person (@myPerson.FirstName) </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(m => myPerson)
+
+    @:[ @(string.Join(", ", ViewData.ModelState.Keys.Cast<string>().ToArray())) ]<br />
+    @:[ @(string.Join(", ", ViewData.ModelState.Values.Cast<ModelState>().Select(m => m.Value.AttemptedValue).ToArray())) ]
+
+    @Html.EditorForModel()
+
+    <input type="submit" value="Submit" />
+}

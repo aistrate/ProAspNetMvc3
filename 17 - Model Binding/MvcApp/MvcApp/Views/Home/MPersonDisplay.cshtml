@@ -1,0 +1,7 @@
+﻿@using MvcApp.Models;
+@model IDictionary<string, MvcApp.Models.Person>
+
+@foreach (string key in Model.Keys) {
+    @Html.DisplayFor(m => m[key]);
+}
+

@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Upload";
+}
+
+<form action="@Url.Action("UploadPhoto")" method="post" enctype="multipart/form-data">
+    Upload a photo: <input type="file" name="photo" />
+    <input type="submit" />
+</form>
+

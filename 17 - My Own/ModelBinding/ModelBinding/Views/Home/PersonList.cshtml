@@ -1,0 +1,33 @@
+﻿@using ModelBinding.Models
+
+@model Person[]
+
+@{
+    ViewBag.Title = "Person List";
+}
+
+<h2>Persons:</h2>
+
+@using (Html.BeginForm())
+{
+    for (int i = 0; i < Model.Length; i++)
+    {
+        <h4>Person Number: @i</h4>
+    
+        @:First Name: @Html.EditorFor(m => m[i].FirstName)
+        @:Last Name: @Html.EditorFor(m => m[i].LastName)
+    }
+    
+    <input type="submit" value="Submit" />
+}
+
+<br /><br />
+<h4>Second Person:</h4>
+First Name: @Html.TextBox("[1].FirstName")
+Last Name: @Html.TextBox("[1].LastName")
+
+<br /><br /><br />
+[ @(string.Join(", ", ViewData.ModelState.Keys.Cast<string>().ToArray())) ]<br />
+[ @(string.Join(", ", ViewData.ModelState.Values.Cast<ModelState>()
+                                                .Select(m => string.Format("\"{0}\"", m.Value.AttemptedValue))
+                                                .ToArray())) ]

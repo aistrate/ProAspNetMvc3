@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Movies";
+}
+
+Enter your three favorite movies:
+
+@using (Html.BeginForm()) {
+
+    @Html.TextBox("movies")
+    @Html.TextBox("movies")
+    @Html.TextBox("movies")
+
+    <input type=submit />
+}

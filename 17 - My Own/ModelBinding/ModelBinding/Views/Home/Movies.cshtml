@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Movies";
+}
+
+Enter your three favorite movies:
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("movies")
+    @Html.TextBox("movies")
+    @Html.TextBox("movies")
+
+    <br />
+
+    @:[ @(string.Join(", ", ViewData.ModelState.Keys.Cast<string>().ToArray())) ]<br />
+    @:[ @(string.Join(", ", ViewData.ModelState.Values.Cast<ModelState>()
+                                                      .Select(m => string.Format("\"{0}\"", m.Value.AttemptedValue))
+                                                      .ToArray())) ]
+
+    <input type="submit" value="Submit" />
+}

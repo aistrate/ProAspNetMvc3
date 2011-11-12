@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Person List 3";
+}
+
+<h2>Persons:</h2>
+
+@using (Html.BeginForm())
+{
+    <h4>First Person</h4>
+    <input type="hidden" name="[0].key" value="firstPerson" />
+    @:First Name: @Html.TextBox("[0].value.FirstName")
+    @:Last Name: @Html.TextBox("[0].value.LastName")
+    
+    <h4>Second Person</h4>
+    <input type="hidden" name="[1].key" value="secondPerson" />
+    @:First Name: @Html.TextBox("[1].value.FirstName")
+    @:Last Name: @Html.TextBox("[1].value.LastName")
+    
+    <input type="submit" value="Submit" />
+}
+
+<br /><br /><br />
+[ @(string.Join(", ", ViewData.ModelState.Keys.Cast<string>().ToArray())) ]<br />
+[ @(string.Join(", ", ViewData.ModelState.Values.Cast<ModelState>()
+                                                .Select(m => string.Format("\"{0}\"", m.Value.AttemptedValue))
+                                                .ToArray())) ]

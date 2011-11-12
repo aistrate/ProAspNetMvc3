@@ -1,0 +1,12 @@
+﻿@model List<string>
+
+@{
+    ViewBag.Title = "MoviesDisplay";
+}
+
+Your movies were:
+
+@foreach (string movie in Model) {
+    <p>@movie</p>
+}
+

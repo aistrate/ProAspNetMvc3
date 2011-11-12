@@ -1,0 +1,43 @@
+﻿@using MvcApp.Models;
+@model MvcApp.Models.Person
+
+<style type="text/css">
+    .check-box {
+        margin: 0.5em 0 0 0;
+    }
+</style>
+
+@{
+    Person myPerson = new Person() {
+        FirstName = "Jane", LastName = "Doe"
+    };
+}
+
+@using (Html.BeginForm()) {
+
+
+     
+     @Html.EditorFor(m => myPerson)
+
+
+     @Html.EditorForModel()
+
+    <input type="submit" value="Submit" />
+}
+
+@*@using (Html.BeginForm()) {
+
+    <div class="column">
+        @Html.EditorForModel()
+    </div>
+    <div class="column">
+        @Html.EditorFor(m => m.HomeAddress)
+    </div>
+    
+    <div class="fullspan">
+        <input type="submit" value="Submit" />
+    </div>
+}*@
+
+
+
