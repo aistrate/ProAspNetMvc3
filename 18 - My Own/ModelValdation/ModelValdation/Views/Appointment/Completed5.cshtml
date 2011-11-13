@@ -1,0 +1,12 @@
+﻿@model ModelValdation.Models.Appointment5
+
+@{
+    ViewBag.Title = "Confirmed (5)";
+    Layout = "~/Views/Shared/_LayoutClientSideVal.cshtml";
+}
+
+<h3>Your appointment is confirmed.</h3>
+
+<p>Your name is: @Model.ClientName</p>
+
+<p>The date of your appointment is: @Model.Date.ToShortDateString()</p>

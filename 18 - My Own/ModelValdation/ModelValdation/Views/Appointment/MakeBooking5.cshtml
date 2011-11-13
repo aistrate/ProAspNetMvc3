@@ -1,0 +1,50 @@
+﻿@model ModelValdation.Models.Appointment5
+
+@{
+    ViewBag.Title = "Make a Booking (5)";
+    Layout = "~/Views/Shared/_LayoutClientSideVal.cshtml";
+}
+
+<h3>Book an Appointment</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    
+    <p>
+        Your name: @Html.EditorFor(m => m.ClientName)
+        @Html.ValidationMessageFor(m => m.ClientName)
+    </p>
+    
+    <p>
+        Appointment Date: @Html.EditorFor(m => m.Date)
+        @*Appointment Date: @Html.TextBoxFor(m => m.Date, new
+        {
+            data_val_date = "Please enter a valid date",
+        })*@
+        @Html.ValidationMessageFor(m => m.Date)
+    </p>
+    
+    <p>
+        Email: @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </p>
+    
+    <p>
+        @Html.EditorFor(m => m.TermsAccepted) I accept the terms & conditions
+        @Html.ValidationMessageFor(m => m.TermsAccepted)
+    </p>
+    
+    <br />
+    <p>
+        Other email: @Html.TextBox("OtherEmail", "abc.def@xyz.com", new
+                {
+                    data_val = "true",
+                    data_val_required = "Please enter an email address [view]",
+                    data_val_email = "Enter a valid email address [view]",
+                })
+        @Html.ValidationMessage("OtherEmail")
+    </p>
+    
+    <input type="submit" value="Make Booking" />
+}

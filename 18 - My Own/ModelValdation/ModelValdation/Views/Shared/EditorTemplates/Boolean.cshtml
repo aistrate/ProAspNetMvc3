@@ -1,0 +1,10 @@
+﻿@model bool?
+
+@{
+    ModelState modelState = ViewData.ModelState[ViewData.ModelMetadata.PropertyName];
+
+    <div @Html.Raw(modelState != null && modelState.Errors.Count > 0 ? "class=\"input-validation-error\"" : "")
+         style="float: left;">
+        @Html.CheckBox("", Model)
+    </div>
+}

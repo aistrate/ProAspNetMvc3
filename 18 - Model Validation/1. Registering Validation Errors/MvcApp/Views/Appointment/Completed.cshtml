@@ -1,0 +1,10 @@
+﻿@model MvcApp.Models.Appointment
+
+@{
+    ViewBag.Title = "Confirmed";
+}
+
+<h4>Your appointment is confirmed.</h4>
+
+<p>Your name is: @Html.DisplayFor(m => m.ClientName)</p>
+<p>The date of your appontment is: @Html.DisplayFor(m => m.Date)</p>
