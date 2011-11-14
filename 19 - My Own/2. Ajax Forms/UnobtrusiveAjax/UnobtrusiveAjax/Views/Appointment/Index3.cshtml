@@ -1,0 +1,43 @@
+﻿@model string
+
+@{
+    ViewBag.Title = "Index3";
+
+    // Graceful degradation (when JavaScript is disabled)
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "tabledata",
+        Url = Url.Action("AppointmentList"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 2000,
+        //Confirm = "Do you wish to request new data?",
+    };
+}
+
+<h2>Appointment List</h2>
+
+<div id="loading" style="display: none; color: Red; font-weight: bold">
+    <p>Loading data...</p>
+</div>
+
+@using (Ajax.BeginForm(ajaxOptions))
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Client Name</th>
+                <th>Appointment Date</th>
+            </tr>
+        </thead>
+        <tbody id="tabledata">
+            @Html.Action("AppointmentList", new { name = Model })
+        </tbody>
+    </table>
+    
+    <p>
+        @Html.DropDownList("name", new SelectList(new[] { "All", "Joe", "Jane", "Bob", },
+                                                  Model ?? "All"))
+
+        <input type="submit" value="Submit" />
+    </p>
+}

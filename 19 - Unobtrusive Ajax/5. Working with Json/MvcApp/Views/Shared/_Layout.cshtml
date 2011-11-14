@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function OnBegin() {
+            alert("This is the OnBegin Callback");
+        }
+
+function OnSuccess(data) {
+
+       
+            
+
+
+
+    var target = $('#tabledata');
+    target.empty();
+    for (var i = 0; i < data.length; i++) {
+        target.append('<tr><td>' + data[i].ClientName + '</td><td>' + formatDate(data[i].Date) + '</td></tr>');
+    }
+
+           
+    alert("This is the OnSuccessCallback: " + JSON.stringify(data));
+}
+
+        function OnFailure(request, error) {
+            alert("This is the OnFailure Callback:" + error);
+        }
+
+        function OnComplete(request, status) {
+            alert("This is the OnComplete Callback: " + status);
+        }
+
+        function formatDate(jsonDate) {
+            var date = new Date(parseInt(jsonDate.substr(6)))
+            return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+        }
+
+    </script>
+</head>
+
+<body>
+    @RenderBody()
+</body>
+</html>

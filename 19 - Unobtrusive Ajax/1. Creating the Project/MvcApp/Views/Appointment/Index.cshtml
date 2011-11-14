@@ -1,0 +1,24 @@
+﻿@model string
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4>Appointment List</h4>
+
+@using (Html.BeginForm()) {
+    
+    <table>
+        <thead>
+            <th>Client Name</th>
+            <th>Appointment Date</th>
+        </thead>
+        <tbody id="tabledata">
+            @Html.Action("AppointmentData", new { id = Model })
+        </tbody>
+    </table>
+        <p>
+        @Html.DropDownList("id", new SelectList(
+            new[] { "All", "Joe", "Jane", "Bob" }, (Model ?? "All")))
+        <input type="submit" value = "Submit" />
+    </p>
+}

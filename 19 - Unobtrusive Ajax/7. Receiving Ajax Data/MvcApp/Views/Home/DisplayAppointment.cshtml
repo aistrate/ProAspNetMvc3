@@ -1,0 +1,10 @@
+﻿@using MvcApp.Models
+@model Appointment
+        
+<p>
+Here is the appointment you made:
+<p>ClientName: @Model.ClientName</p>
+<p>Date: @Model.Date.ToShortDateString()</p>
+<p>Terms Accepted: @Model.TermsAccepted</p>
+</p>                      
+

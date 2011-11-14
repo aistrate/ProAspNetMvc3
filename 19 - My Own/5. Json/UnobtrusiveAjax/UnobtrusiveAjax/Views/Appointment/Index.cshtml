@@ -1,0 +1,72 @@
+﻿@model string
+
+@{
+    ViewBag.Title = "Index";
+
+    //Html.EnableUnobtrusiveJavaScript(false);
+
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "tabledata",
+        Url = Url.Action("AppointmentList"),
+        LoadingElementId = "loading",
+    };
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        function OnSuccess(data) {
+            var target = $('#tabledata');
+            target.empty();
+
+            for (var i = 0; i < data.length; i++) {
+                target.append('<tr><td>' + data[i].ClientName + '</td>' +
+                                  '<td>' + data[i].Date +       '</td></tr>');
+            }
+        }
+
+    </script>
+}
+
+<h2>Appointment List</h2>
+
+<div id="loading" style="display: none; color: Red; font-weight: bold">
+    <p>Loading data...</p>
+</div>
+
+@using (Ajax.BeginForm(ajaxOptions))
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Client Name</th>
+                <th>Appointment Date</th>
+            </tr>
+        </thead>
+        <tbody id="tabledata">
+            @Html.Action("AppointmentList", new { name = Model })
+        </tbody>
+    </table>
+    
+    <p>
+        @Html.DropDownList("name", new SelectList(new[] { "All", "Joe", "Jane", "Bob", },
+                                                  Model ?? "All"))
+
+        <input type="submit" value="Submit" />
+    </p>
+}
+
+@foreach (string s in new[] { "All", "Joe", "Jane", "Bob", })
+{
+    <div style="margin-right: 10px; float: left;">
+        @Ajax.ActionLink(s, "Index", new { name = s },
+                         new AjaxOptions
+                         {
+                             LoadingElementId = "loading",
+                             Url = Url.Action("JsonList", new { name = s }),
+                             OnSuccess = "OnSuccess",
+                         })
+    </div>
+}

@@ -1,0 +1,47 @@
+﻿@model string
+@{
+    ViewBag.Title = "Create an Appointment";
+    AjaxOptions ajaxOpts = new AjaxOptions {
+        UpdateTargetId = "tabledata",
+        Url = Url.Action("AppointmentData"),
+        LoadingElementId = "loading"
+    };   
+}
+
+<h4>Appointment List</h4>
+
+<div id="loading" style="display:none; color:Red; font-weight: bold">
+    <p>Loading Data...</p>
+</div>
+
+@using (Ajax.BeginForm(ajaxOpts)) {
+    <table>
+        <thead>
+            <th>Client Name</th>
+            <th>Appointment Dates</th>
+        </thead>
+        <tbody id="tabledata">
+            @Html.Action("AppointmentData", new { id = Model })
+        </tbody>
+    </table>
+        <p>
+        @Html.DropDownList("id", new SelectList(
+            new[] { "All", "Joe", "Jane", "Bob" }, (Model ?? "All")))
+        <input type="submit" value = "Submit" />
+    </p>
+}
+
+@foreach (string str in new[] { "All", "Joe", "Jane", "Bob" }) {
+    <div style="margin-right:5px; float:left">
+        @Ajax.ActionLink(str, "Index", new { id = str },
+            new AjaxOptions {
+                @*UpdateTargetId = "tabledata",*@
+                LoadingElementId = "loading",
+                Url = Url.Action("AppointmentData", new { id = str }),                
+                @*OnBegin = "OnBegin",
+                OnFailure = "OnFailure",*@
+                OnSuccess = "OnSuccess",
+                @*OnComplete = "OnComplete"*@
+            })
+    </div>
+}

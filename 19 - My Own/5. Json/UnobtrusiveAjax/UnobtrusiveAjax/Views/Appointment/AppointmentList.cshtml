@@ -1,0 +1,15 @@
+﻿@using UnobtrusiveAjax.Models
+
+@model IEnumerable<Appointment>
+
+@{
+    Layout = null;
+}
+
+@foreach (Appointment a in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(m => a.ClientName)</td>
+        <td>@Html.DisplayFor(m => a.Date)</td>
+    </tr>
+}
