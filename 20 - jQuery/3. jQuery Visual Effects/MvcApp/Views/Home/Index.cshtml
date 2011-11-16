@@ -1,0 +1,59 @@
+﻿@using MvcApp.Models;
+@model IEnumerable<Summit>
+@{
+    ViewBag.Title = "List of Summits";
+}
+@if (false) {
+    <script src="../../Scripts/jquery-1.4.4-vsdoc.js" type="text/javascript"></script>
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('table').addClass('summitTable');
+        $('tr:even').css('background-color', 'silver');
+        $(':submit[value="Reset"], a:contains("Add")')
+            .css('float', 'left')
+            .css('margin', '5px');
+
+        $('<th>Height (ft)</th>').insertAfter('th:nth-child(2)').addClass("heightFt");
+        $('<td/>')
+            .insertAfter('td:nth-child(2)')
+            .each(function () {
+                $(this).text((parseInt($(this).prev().text()) * 3.28).toFixed(0));
+            })
+            .addClass('heightFt');
+
+        $('<button>Toggle Feet</button>').insertAfter('form[action$="/ResetSummits"]')
+            .css('float', 'left')
+            .css('margin', '5px')
+            .click(function () {
+                $('.heightFt').toggle();
+            });
+    });
+
+</script>
+
+<h4>Summits</h4>
+<table>
+    <thead>
+        <tr><th>Name</th><th>Height</th><th/></tr>
+    </thead>
+    @foreach (Summit s in Model) {
+        <tr>
+            <td>@s.Name</td>
+            <td>@s.Height</td>
+            <td>
+                @using (Html.BeginForm("DeleteSummit", "Home")) {
+                    @Html.Hidden("name", @s.Name)
+                    <input type="submit" value="Delete" />   
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Add", "AddSummit")
+@using (Html.BeginForm("ResetSummits", "Home")) {
+    <input type="submit" value="Reset" />
+}

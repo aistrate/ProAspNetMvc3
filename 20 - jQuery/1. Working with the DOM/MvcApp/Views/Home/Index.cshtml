@@ -1,0 +1,58 @@
+﻿@using MvcApp.Models;
+@model IEnumerable<Summit>
+@{
+    ViewBag.Title = "List of Summits";
+}
+@if (false) {
+    <script src="../../Scripts/jquery-1.4.4-vsdoc.js" type="text/javascript"></script>
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('table').addClass('summitTable');
+        $('tr:even').css('background-color', 'silver');
+        $(':submit[value="Reset"], a:contains("Add")')
+            .css('float', 'left')
+            .css('margin', '5px');
+
+        //        $('th:nth-child(2)').text('Height (m)').after('<th>Height (ft)</th>');
+        //        $('td:nth-child(2)')
+        //            .after('<td/>')
+        //            .each(function () {
+        //                $(this).next().text((parseInt($(this).text()) * 3.28).toFixed(0));
+        //            });
+
+$('th:nth-child(2)').text('Height (m)').after('<th>Height (ft)</th>');
+$('td:nth-child(2)').each(function () {
+    var height = (parseInt($(this).text()) * 3.28).toFixed(0);
+    $('<td/>').insertAfter($(this)).text(height).css('border', 'thin solid red');
+});
+    });
+
+</script>
+
+<h4>Summits</h4>
+
+<table>
+    <thead>
+        <tr><th>Name</th><th>Height</th><th/></tr>
+    </thead>
+    @foreach (Summit s in Model) {
+        <tr>
+            <td>@s.Name</td>
+            <td>@s.Height</td>
+            <td>
+                @using (Html.BeginForm("DeleteSummit", "Home")) {
+                    @Html.Hidden("name", @s.Name)
+                    <input type="submit" value="Delete" />   
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Add", "AddSummit")
+@using (Html.BeginForm("ResetSummits", "Home")) {
+    <input type="submit" value="Reset" />
+}

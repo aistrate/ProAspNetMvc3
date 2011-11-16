@@ -1,0 +1,116 @@
+﻿@using JQueryApp.Models
+
+@model IEnumerable<Summit>
+
+@{
+    ViewBag.Title = "List of Summits";
+}
+
+@if (false)
+{
+    <script src="../../Scripts/jquery-1.7-vsdoc.js" type="text/javascript"></script>
+}
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('table').addClass('summitTable');
+        $('tr:even').css('background-color', 'silver');
+
+        $('th:nth-child(2)').text('Height (m)')
+        $('<th>').insertAfter('th:nth-child(2)')
+                 .text('Height (ft)')
+                 .addClass('heightFt');
+        $('td:nth-child(2)').each(function () {
+            var height = (parseInt($(this).text()) * 3.28).toFixed(0);
+
+            $('<td>').insertAfter($(this))
+                     .text(height)
+                     .addClass('heightFt');
+        });
+
+        $('form[action$="/DeleteSummit"]').submit(function () {
+            var summitName = $(':hidden', this).attr('value');
+            return confirm('Are you sure you want to delete "' + summitName + '"?');
+        });
+
+        $('<button>').insertAfter('form[action$="/ResetSummits"]')
+                     .text('Toggle Feet')
+                     .click(function () {
+                         $('.heightFt').fadeToggle();
+                     });
+
+        // jQueryUI
+        $(':submit[value="Reset"]').css('padding-bottom', '8px');
+        $('a, :submit').button()
+                       .css('float', 'left')
+                       .css('margin', '5px');
+
+        $('#slider').slider({
+            range: true,
+            min: 5000,
+            max: 9000,
+            values: [5000, 9000],
+            slide: function (event, ui) {
+
+                $('#min').text(ui.values[0]);
+                $('#max').text(ui.values[1]);
+
+                $('tbody tr').each(function() {
+                    var height = parseInt($('td:eq(1)', this).text());
+                    
+                    if (height < ui.values[0] || height > ui.values[1]) $(this).hide();
+                    else $(this).show();
+                });
+
+                $('tr:visible:even').css('background-color', 'silver');
+                $('tr:visible:odd').css('background-color', 'transparent');
+
+            },
+        });
+
+    });
+
+</script>
+
+<h2>Summits</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Height</th>
+            <th />
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Summit summit in Model)
+        {
+            <tr>
+                <td>@summit.Name</td>
+                <td>@summit.Height</td>
+                <td>
+                    @using (Html.BeginForm("DeleteSummit", "Home"))
+                    {
+                        @Html.Hidden("name", @summit.Name)
+                        <input type="submit" value="Delete" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<label id="min">5000</label>
+<div id="slider"></div>
+<label id="max">9000</label>
+<div style="clear: both"></div>
+
+@Html.ActionLink("Add", "AddSummit")
+
+@using (Html.BeginForm("ResetSummits", "Home"))
+{
+    <input type="submit" value="Reset" />
+}

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Add A Summit";
+}
+
+<h4>Add a Summit</h4>
+
+@using (Html.BeginForm()) {
+
+    <p>Name: @Html.TextBox("Name")</p>
+    <p>Height: @Html.TextBox("Height")</p>
+    
+    <input type="submit" />
+}
+
