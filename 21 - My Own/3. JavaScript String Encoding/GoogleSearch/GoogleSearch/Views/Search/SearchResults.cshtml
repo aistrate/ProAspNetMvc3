@@ -1,0 +1,38 @@
+﻿@model string
+
+@{
+    ViewBag.Title = "Search Results";
+}
+
+@if (false)
+{
+    <script src="../../Scripts/jquery-1.5.1-vsdoc.js" type="text/javascript"></script>
+}
+
+<h2>Search Results</h2>
+
+Search term: <b>@Model</b>
+
+<ul id="results"></ul>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        var searchTerm = "@Html.Raw(Ajax.JavaScriptStringEncode(Model))";
+
+        $.getJSON(
+            'http://ajax.googleapis.com/ajax/services/search/web?callback=?',
+            { q: searchTerm, v: '1.0' },
+            function (searchResults) {
+                $('#results').children().remove();
+
+                $.each(searchResults.responseData.results, function () {
+                    $('#results').append($('<li>').html(this.title));
+                });
+            }
+        );
+
+    });
+
+</script>

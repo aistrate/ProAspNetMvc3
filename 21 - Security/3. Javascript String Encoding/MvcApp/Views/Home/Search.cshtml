@@ -1,0 +1,26 @@
+﻿@model string
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h4>Results</h4>
+
+<ul id="results"></ul>
+
+<script type="text/javascript">
+    $(function () {
+        // The following line is the only one that really matters for this example
+        var searchTerm = "@MvcHtmlString.Create(Ajax.JavaScriptStringEncode(Model))";
+        $.getJSON("http://ajax.googleapis.com/ajax/services/search/web?callback=?",
+            { q: searchTerm, v: "1.0" },
+            function (searchResults) {
+                // Clear the results <ul>, then append a <li> for each result
+                $("#results").children().remove();
+                $.each(searchResults.responseData.results, function () {
+                    $("#results").append($("<li>").html(this.title));
+                });
+            }
+        );
+    });
+</script>

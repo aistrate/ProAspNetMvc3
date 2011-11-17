@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@using (Html.BeginForm("SearchResults", "Search"))
+{
+    @Html.AntiForgeryToken()
+
+    @:Search for term: <input type="text" id="searchTerm" name="searchTerm" />
+
+    <input type="submit" value="Search" />
+}

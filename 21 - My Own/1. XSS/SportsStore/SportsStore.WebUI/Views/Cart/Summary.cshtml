@@ -1,0 +1,16 @@
+﻿@model SportsStore.WebUI.Models.CartIndexViewModel
+
+@{
+    Layout = null;
+}
+
+<div id="cart">
+    <span class="caption">
+        <b>Your cart:</b>
+        @Model.Cart.Lines.Sum(l => l.Quantity) item(s),
+        @Model.Cart.ComputeTotalValue().ToString("c")
+    </span>
+    @Html.ActionLink("Checkout", "Index", "Cart",
+                     new { returnUrl = Model.ReturnUrl ?? (Request.Path == "/Cart/Checkout" ? "/" : Request.Url.PathAndQuery) },
+                     null)
+</div>
