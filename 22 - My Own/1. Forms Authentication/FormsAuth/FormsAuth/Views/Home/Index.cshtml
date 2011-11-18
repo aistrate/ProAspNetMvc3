@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+</p>
+
+<p>
+    @Html.ActionLink("Edit Profile", "EditProfile", "Account")
+</p>
+
+<p>
+    @Html.ActionLink("View Profile", "ViewProfile", "Account")
+</p>
+
+<p>
+    [ User Roles:
+
+    @if (Request.IsAuthenticated)
+    {
+        <b>@string.Join(", ", Roles.GetRolesForUser())</b>
+    }
+    else
+    {
+        @:&lt;unauthenticated&gt;
+    }
+
+    ]
+
+</p>

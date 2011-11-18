@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "ViewProfile";
+}
+
+<h2>View Profile</h2>
+
+<div>
+    <fieldset>
+        <legend>Profile Information</legend>
+
+        <div class="display-label">
+            First Name: <b>@Html.Display("FirstName")</b>
+        </div>
+
+        <div class="display-label">
+            City: <b>@Html.Display("City")</b>
+        </div>
+    </fieldset>
+</div>

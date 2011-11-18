@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Edit Profile";
+}
+
+<h2>Edit Profile</h2>
+
+@using (Html.BeginForm()) {
+    <div>
+        <fieldset>
+            <legend>Profile Information</legend>
+
+            <div class="editor-label">
+                @Html.Label("FirstName", "First Name")
+            </div>
+            <div class="editor-field">
+                @Html.Editor("FirstName")
+            </div>
+
+            <div class="editor-label">
+                @Html.Label("City")
+            </div>
+            <div class="editor-field">
+                @Html.Editor("City")
+            </div>
+
+            <p>
+                <input type="submit" value="Save Profile" />
+            </p>
+        </fieldset>
+    </div>
+}
