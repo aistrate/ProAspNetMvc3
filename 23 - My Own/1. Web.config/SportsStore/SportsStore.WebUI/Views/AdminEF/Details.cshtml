@@ -1,0 +1,35 @@
+﻿@model SportsStore.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Product</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">Category</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ProductID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -2,6 +2,7 @@
 [Rr]elease/
 [Oo]bj/
 [Bb]in/
+_bin_deployableAssemblies/
 packages/
 TestResults/
 .gitk

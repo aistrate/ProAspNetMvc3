@@ -1,0 +1,35 @@
+﻿@model SportsStore.Domain.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "Sports Store: Checkout";
+}
+
+<h2>Check out now</h2>
+Please enter your details, and we'll ship your goods right away!
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <h3>Ship to</h3>
+    <div>Name: @Html.EditorFor(d => d.Name)</div>
+    
+    <h3>Address</h3>
+    <div>Line 1: @Html.EditorFor(d => d.Line1)</div>
+    <div>Line 2: @Html.EditorFor(d => d.Line2)</div>
+    <div>Line 3: @Html.EditorFor(d => d.Line3)</div>
+    <div>City: @Html.EditorFor(d => d.City)</div>
+    <div>State: @Html.EditorFor(d => d.State)</div>
+    <div>Zip: @Html.EditorFor(d => d.Zip)</div>
+    <div>Country: @Html.EditorFor(d => d.Country)</div>
+    
+    <h3>Options</h3>
+    <label>
+        @Html.EditorFor(d => d.GiftWrap)
+        Gift wrap these items
+    </label>
+    
+    <p align="center">
+        <input class="actionButtons" type="submit" value="Complete order" />
+    </p>
+}

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Users\Adam\Documents\Books\Pro MVC 3\repository\Source Code\22 - Deployment\scratch" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Views/Shared/ProductSummary.cshtml" publishTime="01/01/2011 19:07:12" />
+    <file relUrl="Views/Product/List.cshtml" publishTime="12/23/2010 09:41:38" />
+    <file relUrl="Scripts/jquery-ui.min.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/jquery-1.4.4-vsdoc.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Global.asax" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Views/_ViewStart.cshtml" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/jquery.validate-vsdoc.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/MicrosoftAjax.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Content/Admin.css" publishTime="12/30/2010 13:14:46" />
+    <file relUrl="bin/Moq.dll" publishTime="12/18/2010 12:46:42" />
+    <file relUrl="Scripts/MicrosoftMvcAjax.debug.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Views/Cart/Index.cshtml" publishTime="12/27/2010 12:59:34" />
+    <file relUrl="Views/Shared/Error.cshtml" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/jquery.validate.min.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/jquery-1.4.4.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Views/Nav/Menu.cshtml" publishTime="12/23/2010 20:25:15" />
+    <file relUrl="Views/Admin/Index.cshtml" publishTime="12/30/2010 00:01:24" />
+    <file relUrl="Views/Admin/Edit.cshtml" publishTime="01/01/2011 18:34:45" />
+    <file relUrl="Scripts/jquery.validate.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/jquery-1.4.4.min.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/jquery.unobtrusive-ajax.min.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="bin/SportsStore.WebUI.dll" publishTime="03/16/2011 16:47:52" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Views/Cart/Summary.cshtml" publishTime="12/27/2010 12:55:07" />
+    <file relUrl="bin/SportsStore.WebUI.pdb" publishTime="03/16/2011 16:47:52" />
+    <file relUrl="bin/Moq.xml" publishTime="12/18/2010 12:46:42" />
+    <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/jquery.validate.unobtrusive.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="bin/SportsStore.Domain.dll" publishTime="03/16/2011 16:47:52" />
+    <file relUrl="Views/Shared/_Layout.cshtml" publishTime="12/27/2010 08:26:35" />
+    <file relUrl="Views/Shared/_AdminLayout.cshtml" publishTime="12/31/2010 13:15:41" />
+    <file relUrl="Scripts/jquery-ui.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="bin/Ninject.xml" publishTime="12/18/2010 18:37:57" />
+    <file relUrl="Views/Account/LogOn.cshtml" publishTime="01/01/2011 09:30:36" />
+    <file relUrl="Views/Cart/Completed.cshtml" publishTime="12/29/2010 09:41:22" />
+    <file relUrl="Web.config" publishTime="03/16/2011 16:47:53" />
+    <file relUrl="Content/Site.css" publishTime="12/27/2010 16:27:48" />
+    <file relUrl="bin/Ninject.dll" publishTime="12/18/2010 18:37:57" />
+    <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Scripts/jquery.unobtrusive-ajax.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="bin/Moq.pdb" publishTime="12/18/2010 12:46:42" />
+    <file relUrl="Scripts/jquery.validate.unobtrusive.min.js" publishTime="12/20/2010 10:43:23" />
+    <file relUrl="Views/Cart/Checkout.cshtml" publishTime="12/29/2010 09:23:16" />
+    <file relUrl="Views/Web.config" publishTime="12/21/2010 22:37:48" />
+    <file relUrl="bin/SportsStore.Domain.pdb" publishTime="03/16/2011 16:47:52" />
+  </publishProfile>
+</publishData>
